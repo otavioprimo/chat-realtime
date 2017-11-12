@@ -1,0 +1,20 @@
+{
+  "name": "socketio-ionic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dateformat": "^3.0.2",
+    "express": "^4.16.2",
+    "node-opensignal-api": "0.0.3",
+    "nodemon": "^1.12.1",
+    "socket.io": "^2.0.4"
+  }
+}

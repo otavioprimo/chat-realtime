@@ -1,0 +1,14 @@
+<ion-menu [content]="menuContent" id="sideMenu" swipeEnabled="false" side="right" type="overlay">
+  <ion-content>
+    <ion-title mode="ios">
+      Users Online
+    </ion-title>
+    <ion-list mode="ios">
+      <ion-item *ngFor="let user of users">
+        {{user.nickname}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav id="nav" #menuContent [hidden]="!showRoot" [root]="rootPage"></ion-nav>

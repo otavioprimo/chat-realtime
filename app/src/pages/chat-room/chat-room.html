@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar>
+      <ion-buttons start mode="ios">
+          <button ion-button icon-only (click)="logout()" color="danger">
+            <ion-icon name="ios-power"></ion-icon>
+          </button>
+        </ion-buttons>
+    <ion-title>
+      Chat
+    </ion-title>
+    <ion-buttons end mode="ios">
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="ios-person"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row *ngFor="let message of messages">
+
+      <ion-col col-9 *ngIf="message.from !== nickname" class="message" [ngClass]="{'my_message': message.from === nickname, 'other_message': message.from !== nickname}">
+        <span class="user_name">{{ message.from }}:</span>
+        <br>
+        <span>{{ message.text }}</span>
+        <div class="time">{{message.created}}</div>
+      </ion-col>
+
+      <ion-col offset-3 col-9 *ngIf="message.from === nickname" class="message" [ngClass]="{'my_message': message.from === nickname, 'other_message': message.from !== nickname}">
+        <span class="user_name">{{ message.from }}:</span>
+        <br>
+        <span>{{ message.text }}</span>
+        <div class="time">{{message.created}}</div>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-item>
+      <ion-label no-lines></ion-label>
+      <ion-input type="text" placeholder="Message..." (keyup.enter)="sendMessage(); newMessage=''" [(ngModel)]="message"></ion-input>
+      <button ion-button item-right (click)="sendMessage(); message=''">
+        <ion-icon name="send"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-toolbar>
+</ion-footer>
